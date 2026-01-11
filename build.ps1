@@ -21,12 +21,12 @@ if ($null -eq $pyinstaller) {
 
 # Build the GUI executable
 Write-Host "`nBuilding GUI executable..." -ForegroundColor Yellow
-python -m PyInstaller --onefile --windowed --name GamebaseGameOrganizer gb64_gui.py
+python -m PyInstaller --onefile --windowed --name GameBase64Organizer gb64_gui.py
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "`n" -ForegroundColor Green
     Write-Host "Build successful!" -ForegroundColor Green
-    Write-Host "Executable location: .\dist\GamebaseGameOrganizer.exe" -ForegroundColor Cyan
+    Write-Host "Executable location: .\dist\GameBase64Organizer.exe" -ForegroundColor Cyan
     Write-Host "`nNote: Original CLI version still available via 'python gb64_reorganizer.py'" -ForegroundColor Cyan
 } else {
     Write-Host "`nBuild failed" -ForegroundColor Red

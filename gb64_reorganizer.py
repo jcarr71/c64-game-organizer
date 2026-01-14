@@ -313,7 +313,7 @@ class GamebaseOrganizer:
             'primary_genre': self.sanitize_folder_name(metadata.get('primary_genre') or 'Unknown'),
             'secondary_genre': self.sanitize_folder_name(metadata.get('secondary_genre') or 'Other'),
             'language': self.sanitize_folder_name(metadata.get('language') or 'Unknown'),
-            'published_year': metadata.get('published_year') or 'Unknown',
+            'published_year': (metadata.get('published_year') or 'Unknown').replace('?', 'x'),
             'publisher': self.sanitize_folder_name(metadata.get('publisher') or 'Unknown'),
             'players': self.sanitize_folder_name(metadata.get('players') or 'Unknown'),
             'control': self.sanitize_folder_name(metadata.get('control') or 'Unknown'),

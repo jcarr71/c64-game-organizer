@@ -2,7 +2,7 @@
 
 ## Available Versions
 
-### v1.3.0 (Current Stable CLI - **RECOMMENDED**)
+### v1.3.1 (Current Stable CLI - **RECOMMENDED**)
 **Status:** Released and tagged on GitHub
 **Component:** CLI only (`gb64_reorganizer.py`) + GUI experimental (`gb64_gui.py`)
 **Features:**
@@ -23,6 +23,10 @@
 - ✅ Multi-disk game file renaming
 - ✅ Copy/Move operations
 - ✅ Safe non-destructive defaults
+
+**New in v1.3.1:**
+- Fixed `{published_year}` placeholder to handle non-numeric years (replaces `?` with `x` for Windows compatibility)
+  - Example: "198?" → "198x"
 
 **New in v1.3.0:**
 - Fixed zip filename when using `--keep-zipped` (uses game name instead of genre)
@@ -58,7 +62,17 @@ python gb64_reorganizer.py "C:\Source" "C:\Dest" --template "{publisher}/{name}"
 {language}/{publisher}/{primary_genre}/{name}
 ```
 
-**Access:** `git checkout v1.3.0` or current `main` branch
+**Access:** `git checkout v1.3.1` or current `main` branch
+
+---
+
+### v1.3.0 (Previous Release)
+**Status:** Superseded by v1.3.1
+**Features:**
+- Fixed zip filename when using `--keep-zipped`
+- Type safety improvements
+
+**Access:** `git checkout v1.3.0`
 
 ---
 
@@ -125,9 +139,9 @@ python gb64_reorganizer.py "C:\Source" "C:\Dest" --template "{publisher}/{name}"
 
 ## How to Switch Versions
 
-### Check out latest version (1.3.0)
+### Check out latest version (1.3.1)
 ```bash
-git checkout v1.3.0
+git checkout v1.3.1
 ```
 
 ### Check out version 1.2.1
@@ -167,8 +181,9 @@ git tag -l -n5
 All versions are available as GitHub Releases at:
 https://github.com/jcarr71/gb64-reorganizer/releases
 
-- **v1.3.0** - Current stable CLI with advanced options and bug fixes
-- **v1.2.1** - Previous stable release
+- **v1.3.1** - Current stable CLI with published_year fix for non-numeric years
+- **v1.3.0** - Previous stable CLI with advanced options and bug fixes
+- **v1.2.1** - Legacy stable release
 - **v1.0.1** - Legacy version with basic template system
 - **v1.0.0** - Original stable release with fixed structure
 
@@ -176,7 +191,7 @@ https://github.com/jcarr71/gb64-reorganizer/releases
 
 ## Development Workflow
 
-### For v1.3.0+ development:
+### For v1.3.1+ development:
 1. Develop on `main` branch
 2. When ready to release, commit changes: `git commit -m "..."`
 3. Create annotated tag: `git tag -a vX.X.X -m "Release notes"`
@@ -189,8 +204,8 @@ All version tags are preserved on GitHub and can be checked out anytime using `g
 
 ## File Structure by Version
 
-### v1.3.0
-- `gb64_reorganizer.py` (with template system, English filter, publisher collapse, keep-zipped, improved type safety)
+### v1.3.1
+- `gb64_reorganizer.py` (with template system, English filter, publisher collapse, keep-zipped, published_year sanitization)
 - `gb64_gui.py` (experimental GUI with filtering and caching)
 - `.github/copilot-instructions.md` (developer documentation)
 - `.gitignore` (proper Git configuration)
